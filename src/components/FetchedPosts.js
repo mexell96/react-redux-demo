@@ -1,8 +1,8 @@
-import { Loader } from "./Loader";
+import { Loader } from "./Loader.tsx";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPosts } from "../redux/actions";
-import Post from "./Post";
+import Post from "./Post.tsx";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default () => {

@@ -8,7 +8,11 @@ import {
     SHOW_LOADER,
 } from "./types";
 
-export function createPost(post) {
+interface IPost {
+    title: string;
+    id: string;
+}
+export function createPost(post: IPost) {
     return {
         type: CREATE_POST,
         payload: post,
@@ -26,7 +30,7 @@ export function hideLoader() {
     };
 }
 
-export function showAlert(text) {
+export function showAlert(text: string) {
     return (dispatch) => {
         dispatch({
             type: SHOW_ALERT,

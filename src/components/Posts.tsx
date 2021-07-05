@@ -1,21 +1,30 @@
 import React from "react";
 import Post from "./Post";
 import { useSelector } from "react-redux";
+import { RootState } from "../redux/rootReducer";
 
-type Obj = {
-    state: any[];
+interface IState {
+    posts: {
+        posts: {
+            title: string;
+            id: string;
+        };
+    };
 }
 
-const Posts: React.FC = () => {
-    const syncPosts = useSelector(
-        (state: Obj) => state.posts.posts
-    );
+export interface IPost {
+    id: string;
+    title: string;
+}
+
+const Posts = () => {
+    const syncPosts = useSelector((state: RootState) => state.posts.posts);
     console.log(syncPosts, "444");
 
     if (!syncPosts.length) {
         return <p className="text-center">Постов пока нет</p>;
     }
-    return syncPosts.map((post) => <Post post={post} key={post.id} />);
+    return syncPosts.map((post: IPost) => <Post post={post} key={post.id} />);
 };
 
 export default Posts;

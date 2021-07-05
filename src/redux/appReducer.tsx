@@ -1,11 +1,16 @@
 import { HIDE_ALERT, HIDE_LOADER, SHOW_ALERT, SHOW_LOADER } from "./types";
 
+interface IAction {
+    type: string;
+    payload: any;
+}
+
 const initialState = {
     loading: false,
     alert: null,
 };
 
-export const appReducer = (state = initialState, action) => {
+export const appReducer = (state = initialState, action: IAction) => {
     switch (action.type) {
         case SHOW_LOADER:
             return { ...state, loading: true };
